@@ -1,0 +1,6 @@
+Things to know when working with variables:
+
+hash_behaviour inside /etc/ansible/ansible.cfg default value is replace.
+It means whenver any overlap will be seen it will replace the value. Its done according to order of precedence.
+
+If two groups are at same level, the you can use ansible_group_Priority to give priority. i.e (ansible_group_Priority:10).

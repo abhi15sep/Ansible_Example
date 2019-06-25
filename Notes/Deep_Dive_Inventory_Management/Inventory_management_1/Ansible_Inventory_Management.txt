@@ -1,0 +1,91 @@
+Link: https://docs.ansible.com/ansible/latest/user_guide/intro_inventory.html#
+
+
+
+1. sudo nano /etc/ansible/hosts
+
+a) If in /etc/ansible/hosts file we want to add many hosts to a group like:
+
+[dev]
+dev1.testlab.com
+dev2.testlab.com
+dev3.testlab.com
+dev4.testlab.com
+
+But it can be done easily with:
+
+[dev]
+dev[1-4].testlab.com
+
+This pattern also takes alphabets example dev[a-c].testlab.com
+
+b) If your company is running ssh over not default port(i.e 22), then you can define non default port as:
+
+[prod]
+prod.testlab.com:2200
+
+c) If assume on dev box ansible master is running and on the same machine one application is running, which you want to manage through ansible.
+
+[dev]
+dev.testlab.com ansible_connection=local
+
+d) You can assign host variables to each host in inventory file. Lets assume on dev box apache is running on port 80 and on prod box apache is running on port 8080
+
+[dev]
+dev.testlab.com http_port=80
+
+[prod]
+prod.testlab.com http_port=8080
+
+Might be you want to asssign variables to a group instead of a host, to achieve this (Group variables):
+
+[dev:vars]
+proxy_server=devproxy.testlab.com
+
+[prod:vars]
+proxy_server=prod.testlab.com
+
+e) Super Groups: Super group contains multiple groups
+
+[dev]
+dev.testlab.com
+
+[test]
+test1.testlab.com
+
+[staging]
+staging.testlab.com
+
+[prod]
+prod.testlab.com
+
+If you want to create 2 super groups, one with dev and test and other with staging and prod.
+
+[lower_env:children]
+dev
+test
+
+[upper_env:children]
+staging
+prod
+
+To assign variables to super group:
+
+[lower_env:vars]
+ftp_server=10.0.10
+
+[upper_env:vars]
+ftp_server=192.168.1.1
+
+
+f) By default there are 2 variables are there in inventory files: i.e all and ungrouped. Every host atlease belongs to 2 groups.
+
+g) You do not need to store your inventory in default location i.e /etc/ansible/hosts.
+	ansible-playbook ~/Documents⁩/⁨ansible⁩/⁨Playbooks/basic.yaml⁩
+
+
+
+
+
+
+

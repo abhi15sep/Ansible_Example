@@ -1,0 +1,7 @@
+1. Check Inventory folder. 
+
+We will use CommandModule.yaml playbook, create a file in remote machine, by utilising variables.
+
+Run Command: ansible-playbook -i ~/Documents⁩/⁨ansible⁩/⁨Inventory/hosts.yaml ⁩~/Documents⁩/⁨ansible⁩/Playbooks/CommandModule.yaml
+
+Then go to dev instance and check file is created or not in Documents folder.
