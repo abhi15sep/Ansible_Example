@@ -1,7 +1,7 @@
 galaxy_info:
-  author: Vikas
+  author: Abhay
   description: Role to Install apache webserver
-  company: LabIT
+  company: Lab
 
   # If the issue tracker for your role is not on github, uncomment the
   # next line and provide a value

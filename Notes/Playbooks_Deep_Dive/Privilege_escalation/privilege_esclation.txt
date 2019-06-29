@@ -1,0 +1,18 @@
+Some Task require higher privilege for execution, sudh as installing software on remote machine, restarting services etc. Ansible allows you to become another user which is different to the user logged-in into remote machine, using existing privilege esclation technique, such as sudo , su etc.
+
+a) become - yes  (execute playbook as root user.)
+b) become_user - Set yourself as another user with desired privilege to execute command.
+
+Lab: Install apache on remote machine. (install_apache.yaml)
+https://docs.ansible.com/ansible/latest/modules/apt_module.html?highlight=apt
+
+Before running this playbook, we need to change some conf on remote machine. 
+1. Go to dev machine, and do sudo -i.
+2. nano /etc/sudoers.
+3. In allow members of group sudo to execute any command.
+   %sudo  ALL=(ALL) NOPASSWD: ALL
+   root  ALL=(ALL) NOPASSWD: ALL
+   cp /etc/sudoers /etc/sudoers_bkp
+
+   ansible-playbook install_apache.yaml
+Then check on Dev machine, /var/www/html folder exists.

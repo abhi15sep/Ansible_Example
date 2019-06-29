@@ -1,0 +1,9 @@
+Idempotency : In ansible terms, If you run a playbook multiple times, you will always achieve the same state. You will not have 2 different states by running same playbook.
+              This is necessary to have consistent state in your environment.
+
+
+Configuration drift: Servers in infra becomes more and more different as times goes.
+
+Module should be idempotent. i.e running a module multiple timesin sequence should have same effect as running it just once.
+
+In last example "creates" key helped to made module idempotent.

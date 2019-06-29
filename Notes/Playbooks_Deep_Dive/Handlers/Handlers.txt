@@ -1,0 +1,21 @@
+Handlers provides a basic event system that can be used to respond to chnages made by your playbook.
+
+Notify actions can be triggred at the end of each block of task in the play. It will be triggred only once if it is triggred by multiple task.
+Ex: Playbook changes ssh config on remote machine, you will use notify and handler machanish and have two task in your playbook. fist task change ssh config and notify second task, and second task then restart ssh service. Means second task only be called if 1st task succeded.
+
+
+If you have multiple task then handler will be called once.
+Ex: You have an apache server and yo are changing configs through multiple tasks, lets say changing 4 different files and have 4 different task for this. Each task calls single handler to restart apache service. Even though its called by 4 different tasks, service will only be restarted once.
+
+LAB: On Master:
+We have ssh file in /etc/ssh.
+nano ssh_config
+In this file add a comment at top:
+
+## This file is edited by ansible.
+
+-========
+
+We have got a custom ssh file now. Now we are going to use template module to copy this templete ssh file on the remote machine. Then we will restart ssh service using notify mechanism.
+
+https://docs.ansible.com/ansible/latest/modules/template_module.html

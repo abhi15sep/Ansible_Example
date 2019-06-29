@@ -1,0 +1,16 @@
+Ansible allows to gather information about remote system when it communicates with remote system. This information is called FACTS.
+Ex: Ip address or hostname of the remote system.
+
+In Terminal of master : To get some FACTS about remote host / group:
+
+ansible dev -m setup - Gives list of facts about remote system.
+
+To get distribution of linux installed on remote system.
+ansible dev -m setup. | grep distribution
+
+If you want to run a task on a particular linux distribution and version, you can use FACTS that you gathered about the system and create a condition in your task.
+
+Ex: See task/install.yaml
+ ansible-playbook install-apache-using-roles
+
+ If you want ansible to not gather facts: In playbook you can use attribute: "gather_facts: no".
