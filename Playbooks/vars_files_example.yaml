@@ -8,6 +8,6 @@
    - name: Using archive modile and variables
      archive: 
       path: "{{ source_dir }}"
-      dest: "{{ backup_dir }}"
+      dest: "{{ backup_dir }}/{{ backup_file_name }}"
       format: zip
      

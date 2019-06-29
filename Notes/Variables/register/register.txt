@@ -1,0 +1,12 @@
+Ansible module returns a datastructure that can be registered in a variable. There are some common values returned by all programs:
+
+Lets see in example playbook: Register_example.yaml
+
+Before running playbook, check in dev machine that java is installed or not.
+
+java -version
+
+If its not installed, then run command:
+sudo apt install default-jre
+
+Now run the playbook.

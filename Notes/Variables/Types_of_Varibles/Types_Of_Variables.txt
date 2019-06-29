@@ -1,0 +1,8 @@
+Ansible has 3 types of variables:
+a) Dictionary : It contains multiple key value pairs.
+b) List: It has multiple values for a single key.
+c) AnsibleUnsafeText: Single key value pair.
+
+type_debug: tells type of variable.
+find_variable_type_example.yaml
+debug: allows print some information on screen.

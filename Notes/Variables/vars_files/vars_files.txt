@@ -1,0 +1,3 @@
+If you want to make some information in your playbook private, could be user accounts, passwords etc. Defining playbook variables in a separate file is very helpful in this scenario.
+
+Create a folder vars at ansible folder level and a playbook vars_files_example.yaml.

@@ -1,0 +1,3 @@
+To create variables dynamically you can use include_vars.
+
+Check include_vars_example.yaml. created a folder all in vars folder.
