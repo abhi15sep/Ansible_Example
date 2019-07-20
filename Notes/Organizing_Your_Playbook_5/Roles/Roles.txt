@@ -1,0 +1,25 @@
+Better way of organize your playbooks is to use roles.
+Roles is a way of loading automatically certain variable files, tasks and handlers based on known file structure. Grouping content by roles also allows easy sharing of roles with the other users. 
+
+Example: If we have to install our lamp stack using roles, we will create one role for apache, one role for mysql server and one role for php. This allows us to reuse these roles, so incase we only want to install apache on set of servers, we can only call apache. In the we want to install all 3, we will call all three roles.
+
+Install tree command : tree ~/Documents
+To install tree: sudo apt-get install tree.
+
+Now lets create role. Roles are created using ansible-galaxy command.
+
+ansible-galaxy -h : To see usage of this command.
+
+Create a roles folder and go to this folder and create 1st role using anssible-galaxy command.
+ansible-galaxy init apache
+
+Here we are creating a role for apache server. Tasks for installation of apache server can be broken down into 3 steps.
+1) Install apache server.
+2) Configure the apache server.
+3) Start the apache server.
+
+First we will start with tasks sub-directory. Create 3 files install.yml, configure.yml and services.yml to complete 3 tasks of installation of apache server.
+Copy and paste index.html and apache2.conf file in files sub-directory.
+
+Once everything is done, we need to create a playbook install_apache_using_roles.yml to run this role.
+Then run the playbook.

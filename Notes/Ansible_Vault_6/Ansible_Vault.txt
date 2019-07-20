@@ -1,0 +1,24 @@
+Ansible vault is a feature of ansible that allows you to keep sensitive data such as passwords and keys in encrypted file. These vault files can be distributed and stored in source control.Ansible vault can encrypt any structured data file used by ansible.
+
+To get ansible vault menu type: ansible-vault -h
+
+Go to ansible/vars folder and run: ansible-vault create test.yaml
+create variables like:
+
+user_name: test_user
+user_pass: password
+
+and save the file.
+
+To view this file : ansible-vault view test.yaml
+To edit this file: ansible-vault edit test.yaml
+To change password of the file: ansible-vault rekey test.yaml
+To encrypt an existinf file: ansible-vault encrypt test1.yaml
+
+#Ansible best practices
+https://docs.ansible.com/ansible/latest/user_guide/playbooks_best_practices.html
+
+A best practice approach for this is to start with a group_vars/ subdirectory named after the group. Inside of this subdirectory, create two files named vars and vault. Inside of the vars file, define all of the variables needed, including any sensitive ones. Next, copy all of the sensitive variables over to the vault file and prefix these variables with vault_. You should adjust the variables in the vars file to point to the matching vault_ variables using jinja2 syntax, and ensure that the vault file is vault encrypted.
+
+
+ 

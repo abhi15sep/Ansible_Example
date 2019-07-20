@@ -1,0 +1,8 @@
+check set_sudoer.yaml
+
+# Docs of lineinfile module:
+https://docs.ansible.com/ansible/latest/modules/lineinfile_module.html
+
+# run using ansible-playbook set_sudoer.yaml -b -K
+
+This command is little different because we need to run this command as root user as no other user can edit sudoers file. since we are changing sudoers file we can't use become: yes.

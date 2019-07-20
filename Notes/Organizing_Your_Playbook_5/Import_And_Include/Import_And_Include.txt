@@ -1,0 +1,18 @@
+There are 3 ways to organize a playbook:
+1)Import
+2)Include
+3)Roles
+
+Import and Include allows users to breakup large playbooks into smaller files which then can be used across multiple parent playbooks or even multiple times in the same playbooks.
+
+Roles allow more than that. They allow tasks to be packaged together and can include variables, handlers and even modules and other plugins. Unlike import and include roles can also be uploaded and shared via ansible galaxy. Galaxy is a free site for finding downloading and sharing community developed roles and its great way to jump start your automation project.
+
+
+Ansible has 2 modes of operation for reusable content.
+a) Static mode
+b) Dynamic mode
+
+In static mode ansible pre-processes all static imports during playbook parsing time. 
+In dynamic mode includes are processed during runtime at the time in whhich that task is encountered.  
+
+Look inside folder  Playbook > import_examples.

@@ -1,3 +1,5 @@
 source_dir: "/home/abhay/"
 backup_dir: "/home/"
 backup_file_name: backup_file
+user_name: "{{ vault_user_name }}"
+user_pass: "{{ vault_user_pass }}"

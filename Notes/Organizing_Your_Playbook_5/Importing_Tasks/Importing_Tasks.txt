@@ -1,0 +1,4 @@
+Check Playbook > import_examples.
+We created backup.yaml and deploy_changes.yaml playbook and these are complete playbook.Then we imported it in master playbook.
+If we only want tasks not complete playbooks. This topic is about this (common_tasks.yaml).
+We can't run this common_tasks.yaml task file alone, we have to call this from other playbook (master.yaml).
